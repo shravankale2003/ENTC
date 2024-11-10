@@ -1,0 +1,528 @@
+01.Area of shapes:
+function triangleArea(base, height) 
+ {
+    return 0.5 * base * height;
+  }
+  //  area of a rectangl=l*w
+  function rectangleArea(length, width) 
+  {
+    return length * width;
+  }
+  //  area of a circle=3.14*r
+  function circleArea(radius) 
+  {
+    return Math.PI * radius * radius;
+  }
+  const base = 5;
+  const height = 8;
+  const length = 6;
+  const width = 4;
+  const radius = 3;
+  const triangle = triangleArea(base, height);
+  const rectangle = rectangleArea(length, width);
+  const circle = circleArea(radius);
+  console.log("Area of Triangle:", triangle);
+  console.log("Area of Rectangle:", rectangle);
+  console.log("Area of Circle:", circle);
+
+
+
+
+
+02.Multiplication table of a particular range
+var num = parseInt(prompt('Enter an integer: '));
+var range = 10;
+
+//creating a multiplication table
+for(let i = 1; i <= range; i++) {
+    var res = i * num;
+    console.log(num +" * "+ i + " = " + res);
+}
+
+
+
+
+
+// 03.Reverse string & Palindrome
+function reverse(str) 
+{
+  return str.split('').reverse().join('');
+}
+function replace(str, oldChar, newChar) 
+{
+  return str.split(oldChar).join(newChar);
+}
+
+function isPalindrome(str) 
+{
+  const reversedStr = reverse(str);
+  return str === reversedStr;
+}
+
+const inputStr = "madam";
+const oldChar = 'm';
+const newChar = 'n';
+console.log('Original String:', inputStr);
+console.log('Reversed String:', reverse(inputStr));
+console.log('String replace characters:', replace(inputStr, oldChar, newChar));
+
+if (isPalindrome(inputStr)) 
+  {
+  console.log('The string is a palindrome.');
+  } 
+else 
+ {
+  console.log('The string is not a palindrome.');
+ }
+
+
+ 
+
+
+
+// 04.Two strings using various methods.
+function compareStrings(str1, str2) {
+  const isEqualStrict = str1 === str2;
+  const compareLocale = str1.localeCompare(str2);
+  const compareLocaleIgnoreCase = str1.toLowerCase().localeCompare(str2.toLowerCase());
+  const startsWithStr1 = str2.startsWith(str1);
+  const endsWithStr1 = str2.endsWith(str1);
+  const isSubstring = str2.indexOf(str1) !== -1;
+  return {
+    isEqualStrict,
+    compareLocale,
+    compareLocaleIgnoreCase,
+    startsWithStr1,
+    endsWithStr1,
+    isSubstring,
+  };
+}
+const string1 = 'hello';
+const string2 = 'Hello, world!';
+const comparisonResults = compareStrings(string1, string2);
+console.log('String Comparison Results:');
+console.log('1. Strict Equality:', comparisonResults.isEqualStrict);
+console.log('2. Locale Compare:', comparisonResults.compareLocale);
+console.log('3. Locale Compare (Case-insensitive):', comparisonResults.compareLocaleIgnoreCase);
+console.log('4. Does String 2 start with String 1:', comparisonResults.startsWithStr1);
+console.log('5. Does String 2 end with String 1:', comparisonResults.endsWithStr1);
+console.log('6. Is String 1 a substring of String 2:', comparisonResults.isSubstring);
+
+
+
+
+
+
+// 05.Countdown timer.
+<html>
+<head>
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 300px;
+        }
+        body{
+            background-image: url("D:\Downloads new\photo.jpg");
+            background: linear-gradient(115deg, rgba(209, 159, 101, 0.8),rgba(202,102,211,0.5)),url(/quizbg.jpg);  
+        }
+        #countdown {
+            font-size: 50px;
+            background-color: #b3ff00;
+            border: 5px solid red;
+            border-radius: 200px 20px;    
+        }
+        fieldset 
+          {
+            background-color: rgb(27, 17, 170);
+          }
+        
+    </style>
+</head>
+<body>
+    <div id="countdown"></div>
+    <script>
+        
+        function updateCountdown() {
+            const targetDate = new Date("2023-9-31  23:59:59"); 
+            const now = new Date().getTime();
+            const timeRemaining = targetDate - now;
+
+            if (timeRemaining <= 0) {
+                document.getElementById("countdown").innerHTML = "Countdown has ended!";
+                clearInterval(countdownInterval);
+            } 
+            else {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML = `Time remaining: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }
+
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+// 06. To remove specific element from the array & Check if an array contains a specified value. 
+let myArray = [10, 20, 30, 40, 50];
+function removeFromArray(arr, element) {
+    const index = arr.indexOf(element);
+    if (index !== -1) {
+        arr.splice(index, 1);
+    }
+}
+
+function containsValue(arr, value) {
+    return arr.includes(value);
+}
+
+function emptyArray(arr) {
+    arr.length = 0;
+}
+console.log("Original Array:", myArray);
+removeFromArray(myArray, 30);
+console.log("Array after removing 30:", myArray);
+console.log("Array contains 40:", containsValue(myArray, 40));
+console.log("Array contains 100:", containsValue(myArray, 100));
+emptyArray(myArray);
+console.log("Array after emptying:", myArray);
+
+
+
+
+
+
+// 07.Set operations
+// Function to perform the Union operation on two sets
+function union(setA, setB) {
+    return new Set([...setA, ...setB]);
+  }
+  // Function to perform the Intersection operation on two sets
+  function intersection(setA, setB) {
+    return new Set([...setA].filter(item => setB.has(item)));
+  }
+  
+  // Function to perform the Difference operation (setA - setB) on two sets
+  function difference(setA, setB) {
+    return new Set([...setA].filter(item => !setB.has(item)));
+  }
+  
+  // Function to perform the Set Difference operation (symmetric difference) on two sets
+  function setDifference(setA, setB) {
+    const diff1 = difference(setA, setB);
+    const diff2 = difference(setB, setA);
+    return union(diff1, diff2);
+  }
+  
+  // Example sets
+  const set1 = new Set([1, 2, 3, 4, 5]);
+  const set2 = new Set([3, 4, 5, 6, 7]);
+  
+  // Perform operations
+  const unionResult = union(set1, set2);
+  const intersectionResult = intersection(set1, set2);
+  const differenceResult = difference(set1, set2);
+  const setDifferenceResult = setDifference(set1, set2);
+  
+  // Display results
+  console.log("Union:", [...unionResult]);
+  console.log("Intersection:", [...intersectionResult]);
+  console.log("Difference (set1 - set2):", [...differenceResult]);
+  console.log("Set Difference:", [...setDifferenceResult]);
+
+
+
+
+
+
+// 08.student information Form
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information Form</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="j.js"></script>
+  <style>
+    #form {
+  width: 500px;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+}
+
+  </style>
+</head>
+<body>
+  <div id="form">
+    <h1>Student Information Form</h1>
+    <input type="text" name="firstname" placeholder="First Name" required>
+    <input type="text" name="lastname" placeholder="Last Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="phone" placeholder="Phone" required>
+    <input type="text" name="address" placeholder="Address" required>
+    <input type="text" name="city" placeholder="City" required>
+    <input type="text" name="state" placeholder="State" required>
+    <input type="text" name="zipcode" placeholder="Zip Code" required>
+    <input type="submit" id="submit" value="Submit">
+  </div>
+
+  <script>
+    // Function to validate the form data
+    function validateForm() {
+      // Check if all required fields are filled out
+      for (let i = 0; i < document.forms[0].elements.length; i++) {
+        const element = document.forms[0].elements[i];
+        if (element.required && element.value === "") {
+          alert("Please fill out all required fields.");
+          return false;
+        }
+      }
+      return true; // Return true if all fields are valid
+    }
+
+    // Function to submit the form data
+    function submitForm() {
+      if (validateForm()) {
+        // Get the form data
+        const data = {};
+        for (let i = 0; i < document.forms[0].elements.length; i++) {
+          const element = document.forms[0].elements[i];
+          if (element.name) {
+            data[element.name] = element.value;
+          }
+        }
+
+        // Send the form data to the server
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/process.php", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(data));
+
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            alert("Form submitted successfully!");
+          } else {
+            alert("Failed to submit form.");
+          }
+        };
+      }
+    }
+
+    // Add an event listener to the submit button
+    document.getElementById("submit").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      submitForm();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+// // 09.simple calculator using Java script
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-image: url('images/wallpaper.jpg'); /* Adjust path as needed */
+      background-size: cover;
+    }
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cambria';
+  color: #333;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(203, 119, 255, 0.9);
+}
+
+.Calculator {
+  display: grid;
+  grid-template-rows: 8% 25% auto;
+  width: 300px;
+  height: 500px;
+  background-color: rgb(215, 24, 24);
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px;
+  background-color: #333;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.calculator-body {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 20px;
+  text-align: right;
+  background-color: #d4dde6;
+}
+
+.calculator-footer {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  padding: 10px 0;
+  background-color: #ffffff;
+}
+
+.calculator-footer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  transition: 0.4s;
+}
+
+.calculator-footer div.symbol {
+  background-color: #4366ff;
+  color: #fff;
+}
+
+.calculator-footer div.symbol-dark {
+  background-color: rgb(115, 250, 115);
+  color: #fff;
+}
+
+.calculator-footer div:hover {
+  cursor: pointer;
+  background-color: #e5e5e5;
+}
+
+.calculator-footer div.symbol:hover,
+.calculator-footer div.symbol-dark:hover {
+  background-color: #dcdfeb;
+}
+
+  </style>
+</head>
+<body>
+  <fieldset>
+    <div class="wrapper">
+      <div class="Calculator">
+        <div class="calculator-header"></div>
+        <div class="calculator-body">
+          <div>
+            <h1 id="output">0</h1>
+            <p id="input"></p>
+          </div>
+        </div>
+        <div class="calculator-footer">
+          <div class="symbol" onclick="calculate('c')"><span>C</span></div>
+          <div class="symbol" onclick="calculate('AC')"><span>AC</span></div>
+          <div class="symbol" onclick="calculate('%')"><span>%</span></div>
+          <div class="symbol" onclick="calculate('/')"><span>/</span></div>
+          <div onclick="calculate('7')"><span>7</span></div>
+          <div onclick="calculate('8')"><span>8</span></div>
+          <div onclick="calculate('9')"><span>9</span></div>
+          <div onclick="calculate('*')" class="symbol"><span>*</span></div>
+          <div onclick="calculate('4')"><span>4</span></div>
+          <div onclick="calculate('5')"><span>5</span></div>
+          <div onclick="calculate('6')"><span>6</span></div>
+          <div onclick="calculate('-')" class="symbol"><span>-</span></div>
+          <div onclick="calculate('1')"><span>1</span></div>
+          <div onclick="calculate('2')"><span>2</span></div>
+          <div onclick="calculate('3')"><span>3</span></div>
+          <div class="symbol" onclick="calculate('+')"><span>+</span></div>
+          <div onclick="calculate('0')"><span>0</span></div>
+          <div onclick="calculate('00')"><span>00</span></div>
+          <div onclick="calculate('.')"><span>.</span></div>
+          <div class="symbol-dark" onclick="calculate('=')"><span>=</span></div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.1.0/math.js"></script>
+  <script>
+    let input = document.getElementById('input');
+let output = document.getElementById('output');
+
+function calculate(data) {
+  switch (data) {
+    case 'AC':
+      input.innerHTML = '';
+      output.innerHTML = '0';
+      break;
+    case 'c':
+      input.innerHTML = input.innerHTML.slice(0, -1);
+      output.innerHTML = input.innerHTML ? math.evaluate(input.innerHTML) : '0';
+      break;
+    case '=':
+      try {
+        output.innerHTML = math.evaluate(input.innerHTML);
+      } catch {
+        output.innerHTML = 'Error';
+      }
+      break;
+    default:
+      input.innerHTML += data;
+      try {
+        output.innerHTML = math.evaluate(input.innerHTML);
+      } catch {
+        output.innerHTML = 'Error';
+      }
+  }
+}
+
+  </script>
+</body>
+</html>
